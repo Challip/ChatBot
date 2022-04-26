@@ -1,0 +1,14 @@
+FOL
+coin (c2) -> -token (c2) | -privacy (c2) | -stablecoin (c2)
+token (t2) -> -coin (t2) | -privacy (t2) | -stablecoin (t2)
+privacy (p2) -> -token (p2) | -coin (p2) | -stablecoin (p2)
+stablecoin (s2) -> -token (s2) | -privacy (s2) | -coin (s2)
+fiat (f) -> -coin (f) | -privacy (f) | -stablecoin (f)|-token(f)
+coin(BTC)
+fiat(USD)
+stablecoin(USDT)
+"token (y1) -> worthM(BTC,y1)"
+"privacy (y2) -> worthM(BTC,y2)"
+"stablecoin (y3) -> worthM(BTC,y3)"
+"fiat (x) -> worthM(x,y) & stablecoin (y) "
+

@@ -1,0 +1,57 @@
+FOL
+coin (c2) -> -token (c2) | -privacy (c2) | -stablecoin (c2)
+token (t2) -> -coin (t2) | -privacy (t2) | -stablecoin (t2)
+privacy (p2) -> -token (p2) | -coin (p2) | -stablecoin (p2)
+stablecoin (s2) -> -token (s2) | -privacy (s2) | -coin (s2)
+coin(x) -> buy(x)
+token(t) -> fee(t)
+privacy(y) -> transfer(y)
+stablecoin(f) | coin (f) -> exchange(f)
+"stablecoin (q) & (coin(p) | blockchain (p) | token (p)) -> trade(q,p)"
+"coin(a) & (blockchain (c) | token (c) | -stablecoin (c)) -> trade(a,c)"
+"token (m) & blockchain (n) -> -trade(m,n)"
+
+coin(BTC)
+coin (c2) -> -token (c2)
+coin (c1) -> -stable (c1)
+coin (c3) -> -privacy (c3)
+token (t2) -> -coin (t2)
+token (t1) -> -privacy(t1)
+token (t3) -> -stablecoin(t3)
+privacy (p2) -> -token (p2)
+privacy (p1) -> -coins (c1)
+privacy (p3) -> -stablcoin (p3)
+stablecoin (s2) -> -token (s2)
+stablecoin (s1) -> -coin (s1)
+stablecoin (s2) -> -privacy (s3)
+worthM (BTC,ETH)
+worth
+
+coin(BTC)
+fiat(USD)
+coin (c) -> - token (c)
+token (t) -> -stablecoin (t)
+stablecoin (s) -> - privacy (s)
+privacy (p) -> -coin(p)
+"buy (a,b) & fiat (a) -> stablecoin(b)"
+"buy (z,x) & stablecoin (z) -> token (x)"
+"buy(USD,USDT)"
+"buy(USDT,ETH)"
+"worthM (BTC,y1) & token (y1)"
+"worthM (BTC,y2) & privacy(y2)"
+"worthM (BTC,y3) & stable(y3)"
+
+
+FOL
+coin (c) -> - token (c)
+token (t) -> -stablecoin (t)
+stablecoin (s) -> - privacy (s)
+privacy (p) -> -coin(p)
+coin(BTC)
+fiat(USD)
+stablecoin(USDT)
+"worthM (BTC,y1) & token (y1)"
+"worthM (BTC,y2) & privacy(y2)"
+"worthM (BTC,y3) & stablecoin(y3)"
+"fiat (x) -> worthM(x,y) & stablecoin (y)"
+"worthM (BTC,y4) & fiat(y)"
